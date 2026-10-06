@@ -20,4 +20,13 @@ let sub = {
     "p256dh":"BPVzBIRLay-Ld_5NGOB7VklTAZ54FW3s_DuAm42hPHcYD8QRSYuc3p3mKKOzcZXS7zlmsAmt8O6yVubQ8BGE_cM"
   }
 };
-push.sendNotification(sub, "test message");
+
+push
+  .sendNotification(sub, "test message")
+  .then((response) => {
+    console.log("Push sent:", response);
+  })
+  .catch((error) => {
+    console.error("Push failed:", error.statusCode);
+    console.error(error.body);
+  });
