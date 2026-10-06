@@ -1,3 +1,3 @@
-self.addEventListener('push', () => {
-  self.registeration.sendNotification('test message', {});
+self.addEventListener("push", () => {
+  self.registration.showNotification("Hello world!", options);
 });
