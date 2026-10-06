@@ -1,0 +1,25 @@
+<html>
+  <head> </head>
+  <body>
+
+    <h1> Hello World </h1>
+    <script>
+
+      addEventListener('load', async () => {
+        let sw = await navigator.serviceWorker.register('./sw.js');
+        console.log(sw);
+      })
+
+      async function subscribe() {
+        let sw = await navigator.serviceWorker.ready;
+        let push = await sw.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: 'BNKtHO8W2lqCij_P3jkZLl2Muheh5Q8aNlo2uQ1Vwl5CWdogPwUdsrdhBFoZcMxBpYbVGKpRkZN6wHGUdmQO9Rs'
+        });
+
+        console.log(JSON.stringify(push));
+      }
+
+    </script>
+  </body>
+</html>
